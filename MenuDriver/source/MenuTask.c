@@ -318,7 +318,7 @@ void Control_UP_Processig(SMenuState *tempState)
 {
 	MenuItem *tempMenu=tempState->CurrentMenu;
 	// Call personal widget processing function
-	tempMenu->Memders[tempMenu->CursorPosition]->widgetCallback((void*)tempMenu->Memders[tempMenu->CursorPosition],
+	UserKeyPressCallBack((void*)tempMenu->Memders[tempMenu->CursorPosition],
 																KEY_UP);
 }
 
@@ -329,7 +329,7 @@ void Control_DOWN_Processig(SMenuState *tempState)
 {
 	MenuItem *tempMenu=tempState->CurrentMenu;
 	// Call personal widget processing function
-	tempMenu->Memders[tempMenu->CursorPosition]->widgetCallback((void*)tempMenu->Memders[tempMenu->CursorPosition],
+	UserKeyPressCallBack((void*)tempMenu->Memders[tempMenu->CursorPosition],
 																KEY_DOWN);
 }
 
@@ -341,7 +341,7 @@ void Control_ENTR_Processig(SMenuState *tempState)
 {
 	MenuItem *tempMenu=tempState->CurrentMenu;
 	// Call personal widget processing function
-	tempMenu->Memders[tempMenu->CursorPosition]->widgetCallback((void*)tempMenu->Memders[tempMenu->CursorPosition],
+	UserKeyPressCallBack((void*)tempMenu->Memders[tempMenu->CursorPosition],
 																	KEY_ENTR);
 	tempState->CurrentState=STATE_MENU;
 }

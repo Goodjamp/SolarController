@@ -55,5 +55,6 @@ typedef struct{
 
 void DefaultCallback(void* item);
 WIDGETTYPE GetWidgetAccess(TypWidgetPropertys* item);
+void UserKeyPressCallBack(void* item, KEYBOARD_STATE key);
 
 #endif // MENUDRIVERCOMON_H

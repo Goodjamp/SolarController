@@ -3,6 +3,9 @@
 #include "stdint.h"
 #include "menudrivercomon.h"
 
+
+
+
 // Pointer description of ListBox callback function. This function call when
 // changed current list index.
 typedef void (*UserListboxIndexCallback)(void* item, uint8_t *currentIndex);
@@ -13,7 +16,7 @@ typedef struct{
     uint8_t        CurrentIndex;
     const uint8_t  ListSize;
     const uint8_t  **ListItems;
-    UserListboxIndexCallback userListboxIndexCallbak;
+    UserListboxIndexCallback userListBoxChangeIndexCallback;
 }ListBox;
 
 //----------List items macros definition-------------
@@ -26,16 +29,13 @@ typedef struct{
 																	  .Position.length=LENGTH,\
 																	  .Position.type=TYPELISTBOX,\
 																	  .Position.widgetCallback=&ListBoxCallback,\
-																	  .CurrentIndex=0,\
+																	  .userListBoxChangeIndexCallback = NULL,\
+																	  .CurrentIndex = 0,\
 																	  .ListSize=sizeof(LIST)/sizeof(LIST[0]),\
                                                                       .ListItems=LIST\
                                                                   };
 
 void ListBoxCallback(void* item, KEYBOARD_STATE key);
 uint8_t ListBoxGetIndex(ListBox *ListBoxState);
-void UserCallbackFunction(void* item);
-
-
-
 
 #endif // LISTBOX_H

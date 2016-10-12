@@ -3,20 +3,11 @@
 #include "listBox.h"
 #include "MenuDriverComon.h"
 
-
+//
 void ListBoxCallback(void* item, KEYBOARD_STATE key){
-
+	((ListBox*)item)->userListBoxChangeIndexCallback(item, ((ListBox*)item)->CurrentIndex);
 }
 
-void UserCallbackFunction(void* item)
-{
-	if(GetWidgetAccess==WIDGETSTATE_BUSY)
-	{
-		return WIDGETSTATE_BUSY;
-	}
-	// Call user callback function
-	((ListBox*)item)->userListboxIndexCallbak(item, ((ListBox*)item)->CurrentIndex);
-}
 
 
 uint8_t ListBoxGetIndex(ListBox *ListBoxState){
