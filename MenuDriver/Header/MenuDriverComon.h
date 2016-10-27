@@ -37,9 +37,7 @@ typedef enum{
 
 
 //Pointer description of callback function
-typedef void (*WidgetCallback)(void* item, KEYBOARD_STATE key);
-//Pointer description of callback function
-typedef void (*UserCallback)(void* item, void *data);
+typedef void (*WidgetCallback)(const void* item, KEYBOARD_STATE key);
 
 //----Position descriptor---------
 typedef struct{
@@ -54,7 +52,7 @@ typedef struct{
 
 
 void DefaultCallback(void* item);
-WIDGETTYPE GetWidgetAccess(TypWidgetPropertys* item);
+WIDGETSTATE GetWidgetAccess(TypWidgetPropertys* item);
 void UserKeyPressCallBack(void* item, KEYBOARD_STATE key);
 
 #endif // MENUDRIVERCOMON_H

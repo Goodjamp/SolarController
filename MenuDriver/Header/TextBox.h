@@ -15,16 +15,17 @@ typedef struct{
 
 
 //-----------Macros for create new TextBox example------
-#define ADDNEWTEXTBOX(NAME,POS_ROW,POS_COLUMN,LENGTH) static TextBox NAME={\
-																	     .Position.row=POS_ROW,\
-																	     .Position.clumn=POS_COLUMN,\
-																	     .Position.length=LENGTH,\
-																	     .Position.type=TYPETEXTBOX,\
-																	     .Position.widgetCallback=&TextBoxCallback,\
-																	     .CurrentVal=" "\
-                                                                         };
+#define ADDNEWTEXTBOX(NAME,POS_ROW,POS_COLUMN,LENGTH) TextBox NAME={\
+																	 .Position.row=POS_ROW,\
+																	 .Position.clumn=POS_COLUMN,\
+																	 .Position.length=(uint8_t)LENGTH,\
+																	 .Position.type=TYPETEXTBOX,\
+																	 .Position.widgetCallback=NULL,\
+																	 .CurrentVal=NULL\
+                                                                      };
 
 
-void TextBoxCallback(void* item, KEYBOARD_STATE key);
+void TextBoxSetText(void *item, uint8_t *newText);
+void TextBoxGetText(void *item, uint8_t * newText);
 
 #endif

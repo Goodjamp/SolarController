@@ -100,7 +100,6 @@ SMenuState CurentMenuState={
  */
 void TaskMenu(void* rootMenuItem){
 	KEYBOARD_STATE CurrentPressKey;
-	uint8_t menuWidgetCnt;
 	//pointer on ROOT MENU ITEM in state structure
 	CurentMenuState.CurrentMenu=(MenuItem*)rootMenuItem;
 	CurentMenuState.RootMenu=CurentMenuState.CurrentMenu;
@@ -167,15 +166,15 @@ void MenuTree_DOWN_Processig(SMenuState *tempState)
 void MenuTree_ENTR_Processig(SMenuState *tempState)
 {
 	MenuItem *tempMenu=tempState->CurrentMenu;
-	if(tempState->CurrentMenu->Right == NULL)
+	if(tempState->CurrentMenu->Down == NULL)
 	{   // If current mennu a root off some menu tree - entr on new menu tree
-		if(tempMenu->Right != NULL)
+		if(tempMenu->Down != NULL)
 		{
-			tempState->CurrentMenu=tempMenu->Right;
+			tempState->CurrentMenu=tempMenu->Down;
 			return;
 		}
 		// if current menu is controll menu
-		else if(tempMenu->Size !=0)
+		else if(tempMenu->widgetsNumber !=0)
 		{
 			tempState->CurrentState=STATE_MENU;
 			tempState->CurrentMenu->CursorPosition=0;
@@ -189,7 +188,7 @@ void MenuTree_ENTR_Processig(SMenuState *tempState)
 	}
 	else
 	{
-		tempState->CurrentMenu=(MenuItem*)tempState->CurrentMenu->Right;
+		tempState->CurrentMenu=(MenuItem*)tempState->CurrentMenu->Down;
 	}
 }
 
@@ -205,9 +204,9 @@ void MenuTree_ESC_Processig(SMenuState *TempState)
 	{
 		TempMenu=TempMenu->Up;
 	}
-	if(TempMenu->Left != NULL)
+	if(TempMenu->Up != NULL)
 	{
-		TempState->CurrentMenu=TempMenu->Left;
+		TempState->CurrentMenu=TempMenu->Up;
 	}
 	else
 	{
@@ -224,7 +223,7 @@ uint8_t NumCursorWidget(const MenuItem *InMenuItem)
 	uint8_t WidCnt=0;
 	uint8_t CursorWidCnt=0;  // cursor widget size
 	//find all widgets with cursor property
-	for(;WidCnt<InMenuItem->Size;WidCnt++){
+	for(;WidCnt<InMenuItem->widgetsNumber;WidCnt++){
 		if(ISCURSORWIDGET(InMenuItem->Memders[WidCnt]->type))
 		{
 			CursorWidCnt++;
@@ -247,7 +246,7 @@ void CursorShift(MenuItem *tempMenu,KEYBOARD_STATE key)
 		if(key == KEY_UP)
 		{
 			widgetCount++;
-			if(widgetCount == tempMenu->Size)
+			if(widgetCount == tempMenu->widgetsNumber)
 			{
 				widgetCount=0;
 			}
@@ -256,7 +255,7 @@ void CursorShift(MenuItem *tempMenu,KEYBOARD_STATE key)
 		{
 			if(widgetCount == 0)
 			{
-				widgetCount=tempMenu->Size;
+				widgetCount=tempMenu->widgetsNumber;
 			}
 			widgetCount--;
 		}
@@ -342,7 +341,7 @@ void Control_ENTR_Processig(SMenuState *tempState)
 	MenuItem *tempMenu=tempState->CurrentMenu;
 	// Call personal widget processing function
 	UserKeyPressCallBack((void*)tempMenu->Memders[tempMenu->CursorPosition],
-																	KEY_ENTR);
+																KEY_ENTR);
 	tempState->CurrentState=STATE_MENU;
 }
 

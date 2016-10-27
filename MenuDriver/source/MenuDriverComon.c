@@ -1,5 +1,10 @@
 #include "MenuDriverComon.h"
 
+/* Scheduler includes. */
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+
 /*!
  * \brief DefaultCallback
  */
@@ -13,17 +18,16 @@ void DefaultCallback(void* item){
  * \brief GetWidgetAccess check is widget free and take it to modify
  * \param  item pointer processing to widget
  */
-WIDGETTYPE GetWidgetAccess(TypWidgetPropertys* item)
+WIDGETSTATE GetWidgetAccess(TypWidgetPropertys* item)
 {
 	// If widget is free - take it to modify
 	vTaskSuspendAll();
-	if(item->fState==WIDGETSTATE_FREE)
+	if(item->fState == WIDGETSTATE_FREE)
 	{
-		item->fState=WIDGETSTATE_BUSY;
+		item->fState = WIDGETSTATE_BUSY;
 	}
 	xTaskResumeAll();
 	return item->fState;
-
 }
 
 
@@ -34,11 +38,8 @@ WIDGETTYPE GetWidgetAccess(TypWidgetPropertys* item)
  * \param  key user press key
  */
 void UserKeyPressCallBack(void* item, KEYBOARD_STATE key){
-	//check is widget free
-	if(GetWidgetAccess(item)==WIDGETSTATE_BUSY)
-	{
-		return WIDGETSTATE_BUSY;
-	}
+	//wait order using control
+	while(GetWidgetAccess(item)==WIDGETSTATE_BUSY){};
 	// Call function
 	((TypWidgetPropertys*)item)->widgetCallback(item, key);
 

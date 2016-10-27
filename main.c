@@ -29,31 +29,11 @@ extra code. */
 #define mainTASK2_STACK_SIZE			100
 
 
-// ListBox
-ADDNEWLISTITEM(list1,{"One","Two","Three"});
-ADDNEWLISTBOX(ListBox1,list1,1,2,3);
-ADDNEWLISTBOX(ListBox2,list1,1,2,3);
-
-
-// NumBox descrid
-ADDNEWNUMBOX(numbox1,0,10,1,1,8,2);
-
-
-
-
-//Menu Item
-MENUITEM(RootMenuItem,{&ListBox1.Position,&ListBox1.Position});
-
-
 void task1( void *pvParameters );
 void task2( void *pvParameters );
 
 int main( void )
 {
-	#ifdef DEBUG
-		debug();
-	#endif
-
 	/* Start the tasks defined within this file/specific to this demo. */
     xTaskCreate( task1, "TASK1", mainTASK1_STACK_SIZE, NULL, mainTASK1_PRIORITY, NULL );
 	xTaskCreate( task2, "TASK2", mainTASK2_STACK_SIZE, NULL, mainTASK2_PRIORITY, NULL );

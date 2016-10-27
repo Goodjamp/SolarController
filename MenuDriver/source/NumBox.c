@@ -5,7 +5,7 @@
 #include "MenuDriverComon.h"
 
 
-void NumBoxCallback(void* item, KEYBOARD_STATE key){
+void NumBoxCallback(const void* item, KEYBOARD_STATE key){
 	// Call user callback function
 	((NumBox*)item)->userNumBoxNumChangCallbak(item, ((NumBox*)item)->CurrentVal);
 }

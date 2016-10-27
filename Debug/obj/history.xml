@@ -1,68 +1,74 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -O0 -g -c -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -DSTM32F103C8 -I. -Icmsis -Icmsis_boot -Istm_lib -Istm_lib\inc -IFreeRTOS -IFreeRTOS\ARM_CM3 -IFreeRTOS\include -IFreeRTOS\ARM_CM3\MemMang -IMenuDriver\Header">
-      <target file="MenuDriverComon.o" lastModified="157b4bffc1e">
-         <source file="..\..\MenuDriver\source\MenuDriverComon.c" lastModified="157b4b68f43"/>
+      <target file="MenuDriverComon.o" lastModified="15806faac81">
+         <source file="..\..\MenuDriver\source\MenuDriverComon.c" lastModified="157ee25d135"/>
       </target>
-      <target file="MenuTask.o" lastModified="157b4bffd86">
-         <source file="..\..\MenuDriver\source\MenuTask.c" lastModified="157b4b80869"/>
+      <target file="MenuTask.o" lastModified="15806faada3">
+         <source file="..\..\MenuDriver\source\MenuTask.c" lastModified="157f18b5864"/>
       </target>
-      <target file="tasks.o" lastModified="157b4c000ce">
+      <target file="tasks.o" lastModified="15806fab05f">
          <source file="..\..\FreeRTOS\tasks.c" lastModified="154cefaea80"/>
       </target>
-      <target file="stm32f10x_rcc.o" lastModified="157b4bfff0c">
+      <target file="stm32f10x_rcc.o" lastModified="15806faaef7">
          <source file="..\..\stm_lib\src\stm32f10x_rcc.c" lastModified="157ab3ddfda"/>
       </target>
-      <target file="core_cm3.o" lastModified="157b4bffa20">
+      <target file="core_cm3.o" lastModified="15806faaa79">
          <source file="..\..\cmsis\core_cm3.c" lastModified="157ab3dca27"/>
       </target>
-      <target file="event_groups.o" lastModified="157b4c0045c">
+      <target file="event_groups.o" lastModified="15806fab3de">
          <source file="..\..\FreeRTOS\event_groups.c" lastModified="154cefae60d"/>
       </target>
-      <target file="TextBox.o" lastModified="157b4c0057e">
-         <source file="..\..\MenuDriver\source\TextBox.c" lastModified="157a03a2962"/>
+      <target file="TextBox.o" lastModified="15806fab618">
+         <source file="..\..\MenuDriver\source\TextBox.c" lastModified="157f76925bd"/>
       </target>
-      <target file="croutine.o" lastModified="157b4c003c6">
+      <target file="croutine.o" lastModified="15806fab348">
          <source file="..\..\FreeRTOS\croutine.c" lastModified="154cefae60d"/>
       </target>
-      <target file="MenuItemBox.o" lastModified="157b4bffe6c">
-         <source file="..\..\MenuDriver\source\MenuItemBox.c" lastModified="15761b1b52b"/>
+      <target file="MenuItemBox.o" lastModified="15806faae6b">
+         <source file="..\..\MenuDriver\source\MenuItemBox.c" lastModified="157f3557790"/>
       </target>
-      <target file="queue.o" lastModified="157b4c002e0">
+      <target file="queue.o" lastModified="15806fab26c">
          <source file="..\..\FreeRTOS\queue.c" lastModified="154cefaea6c"/>
       </target>
-      <target file="startup_stm32f10x_md.o" lastModified="157b4bffb10">
+      <target file="startup_stm32f10x_md.o" lastModified="15806faab4b">
          <source file="..\..\cmsis_boot\startup\startup_stm32f10x_md.c" lastModified="157adda7e4c"/>
       </target>
-      <target file="StaticTextBox.o" lastModified="157b4c00132">
+      <target file="SolarControllerMenuDescription.o" lastModified="15806fab4a6">
+         <source file="..\..\SolarControllerMenuDescription.c" lastModified="15806f7db69"/>
+      </target>
+      <target file="StaticTextBox.o" lastModified="15806fab0c3">
          <source file="..\..\MenuDriver\source\StaticTextBox.c" lastModified="15791a187bf"/>
       </target>
-      <target file="list.o" lastModified="157b4c001aa">
+      <target file="list.o" lastModified="15806fab140">
          <source file="..\..\FreeRTOS\list.c" lastModified="154cefae65a"/>
       </target>
-      <target file="port.o" lastModified="157b4c00362">
+      <target file="NumBox.o" lastModified="15806fab5aa">
+         <source file="..\..\MenuDriver\source\NumBox.c" lastModified="157ec9e734b"/>
+      </target>
+      <target file="port.o" lastModified="15806fab2e4">
          <source file="..\..\FreeRTOS\ARM_CM3\port.c" lastModified="154cefae6fa"/>
       </target>
-      <target file="stm32f10x_gpio.o" lastModified="157b4bffb9c">
+      <target file="stm32f10x_gpio.o" lastModified="15806faabeb">
          <source file="..\..\stm_lib\src\stm32f10x_gpio.c" lastModified="157ab3e0d34"/>
       </target>
-      <target file="timers.o" lastModified="157b4bffe12">
+      <target file="timers.o" lastModified="15806faae1b">
          <source file="..\..\FreeRTOS\timers.c" lastModified="154cefaea8a"/>
       </target>
-      <target file="system_stm32f10x.o" lastModified="157b4bffab6">
+      <target file="system_stm32f10x.o" lastModified="15806faaafb">
          <source file="..\..\cmsis_boot\system_stm32f10x.c" lastModified="157ab3dd1cf"/>
       </target>
-      <target file="ListBox.o" lastModified="157b4bfffb6">
-         <source file="..\..\MenuDriver\source\ListBox.c" lastModified="157b4be8a3b"/>
+      <target file="ListBox.o" lastModified="15806faaf5b">
+         <source file="..\..\MenuDriver\source\ListBox.c" lastModified="157ee601446"/>
       </target>
-      <target file="syscalls.o" lastModified="157b4c00218">
+      <target file="syscalls.o" lastModified="15806fab1a4">
          <source file="..\..\syscalls\syscalls.c" lastModified="157ab3dc027"/>
       </target>
-      <target file="heap_1.o" lastModified="157b4c004d4">
+      <target file="heap_1.o" lastModified="15806fab53c">
          <source file="..\..\FreeRTOS\ARM_CM3\MemMang\heap_1.c" lastModified="154cefae921"/>
       </target>
-      <target file="main.o" lastModified="157b4bffcf0">
-         <source file="..\..\main.c" lastModified="157af94e476"/>
+      <target file="main.o" lastModified="15806faad2b">
+         <source file="..\..\main.c" lastModified="15806d74c9f"/>
       </target>
    </processor>
 </history>
